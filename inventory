@@ -1,5 +1,5 @@
 [loadbalancer]
-rt410vws5.gtr.tp
+rt410vws5
 
 [webserver]
 rt410vws6.gtr.tp ipv4_address="10.4.110.246"

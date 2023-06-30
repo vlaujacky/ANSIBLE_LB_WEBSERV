@@ -1,0 +1,17 @@
+events {
+	worker_connections 768;
+	# multi_accept on;
+}
+http {
+upstream {{ groups["loadbalancer"][0] }} {
+{% for item in groups["webserver"] %}
+    server {{ item }}:80;
+{% endfor %}
+}
+server {
+    listen 80;
+    location / {
+        proxy_pass http://{{ groups["loadbalancer"][0] }};
+    }
+}
+}

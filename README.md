@@ -6,3 +6,7 @@ Remplacer dans files/nginx.conf par les valeurs adaptés à votre configuration
 
 ansible-playbook -i inventory playbook_web_lb_file.yaml -u rt -k
 
+
+Pour lancer avec Template Nginx : 
+
+ansible-playbook -i inventory playbook_web_lb_template.yaml -u rt -k

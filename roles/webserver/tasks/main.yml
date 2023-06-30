@@ -5,3 +5,13 @@
   apt: 
     name: apache2
     state: present
+
+- name: Template for index Website
+  template:
+    src: template/index.html.j2
+    dest: /var/www/html/index.html
+
+- name: Reload service Apache2, in all cases
+  ansible.builtin.service:
+    name: apache2
+    state: reloaded

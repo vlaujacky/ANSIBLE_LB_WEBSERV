@@ -15,12 +15,12 @@
     name: nginx 
     state: present
 
-- name: Copy Nginx Config
-  copy:
-    src: nginx.conf
+- name: Generate Nginx Conf Template
+  template:
+    src: template/nginx.conf.j2
     dest: /etc/nginx/nginx.conf
 
-- name: Reload service nginx, in all cases
+- name: Reload service Nginx, in all cases
   ansible.builtin.service:
     name: nginx
     state: reloaded

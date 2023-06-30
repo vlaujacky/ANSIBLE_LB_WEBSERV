@@ -1,0 +1,12 @@
+---
+- hosts: loadbalancer
+  become: true
+
+  roles:
+    - role: loadbalancer_with_template
+
+- hosts: webserver
+  become: true
+
+  roles:
+    - role: webserver
