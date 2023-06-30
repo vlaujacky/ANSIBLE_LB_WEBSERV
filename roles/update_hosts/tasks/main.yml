@@ -1,0 +1,6 @@
+---
+# tasks file for roles/update_hosts
+- name: Generate Hosts file
+  template:
+    src: update_hosts.j2
+    dest: /home/user/WORKSPACE/ANSIBLE/hosts.gen

@@ -1,0 +1,4 @@
+{% for item in groups["webserver"] %}
+Mon Hostname: {{ item }}
+Mon IP: {{ hostvars[item].ipv4_address }}
+{% endfor %}
