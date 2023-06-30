@@ -3,7 +3,7 @@
   become: true
 
   roles:
-    - role: loadbalancer
+    - role: loadbalancer_with_file
 
 - hosts: webserver
   become: true
