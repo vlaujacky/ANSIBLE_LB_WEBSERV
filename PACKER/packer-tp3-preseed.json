@@ -1,0 +1,49 @@
+{
+    "builders": [
+      {
+        "type": "vsphere-iso",
+        "vm_name": "debian-preseed",
+  
+        "iso_url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.7.0-amd64-netinst.iso",
+        "iso_checksum": "eb3f96fd607e4b67e80f4fc15670feb7d9db5be50f4ca8d0bf07008cb025766b",
+  
+        "vcenter_server": "10.4.110.99",
+        "username": "administrator@vsphere.local",
+        "password": "Iamroot!01",
+        
+        "datacenter": "DC VISITTHIDETH",
+        "host": "10.4.110.5",
+        "datastore": "datastore1",
+        "folder": "Templates",
+        "guest_os_type": "debian10_64Guest",
+  
+        "ssh_username": "rt",
+        "ssh_password": "rt",
+        "cpus": 2,
+        "ram":4096,
+
+        "boot_command": [
+          "<esc><wait>",
+          "auto preseed/url=http://rt410vmw17/preseed.cfg<wait>",
+          "<enter><wait>"
+        ],
+        "boot_wait": "10s",
+        "ssh_wait_timeout": "10000s",
+
+        "network_adapters": [
+            {
+              "network": "VM Network",
+              "network_card": "vmxnet3"
+            }
+          ],
+
+        "storage": [
+          {
+            "disk_size": "20480",
+            "disk_thin_provisioned": "true"
+          }
+        ],
+        "insecure_connection": "true"
+      }
+    ]
+  }

@@ -1,0 +1,46 @@
+{
+    "builders": [
+      {
+        "type": "vsphere-iso",
+        "vm_name": "rocky9-kickstart",
+  
+        "iso_url": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.1-x86_64-boot.iso",
+        "iso_checksum": "a36753d0efbea2f54a3dc7bfaa4dba95efe9aa3d6af331d5c5b147ea91240c21",
+  
+        "vcenter_server": "10.4.110.99",
+        "username": "administrator@vsphere.local",
+        "password": "Iamroot!01",
+        
+        "datacenter": "DC VISITTHIDETH",
+        "host": "10.4.110.5",
+        "datastore": "datastore1",
+        "folder": "Templates",
+  
+        "ssh_username": "rt",
+        "ssh_password": "rt",
+        "cpus": 2,
+        "ram":4096,
+
+        "boot_command": [
+          "<up><wait5><tab> text inst.ks=http://rt410vmw17/kickstart-rocky9.cfg<enter><wait>"
+        ],
+        "boot_wait": "10s",
+        "ssh_wait_timeout": "10000s",
+
+        "network_adapters": [
+            {
+              "network": "VM Network",
+              "network_card": "vmxnet3"
+            }
+          ],
+
+        "storage": [
+          {
+            "disk_size": "20480",
+            "disk_thin_provisioned": "true"
+          }
+        ],
+        "insecure_connection": "true"
+      }
+    ]
+  }
